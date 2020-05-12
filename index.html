@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>Tramarche</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<header>
+    <div class="container-fluid">
+        <nav class="p-0 navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand uppercaseText" href="#">Tramarche</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Flight <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Hotels</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="badge badge-danger">New</span>Visa</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Holidays</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              </ul>
+              <div class="form-inline my-2 my-lg-0">
+                <span class="curency eng">
+                    Rs
+                </span>
+                <a href="#">Sign In</a>
+                <a class="btn btn-outline-primary my-2 my-sm-0">Login</a>
+              </div>
+            </div>
+          </nav>
+    </div>
+</header>
+
+<section class="searchSection">
+    <div class="container-fluid">
+        <form>
+            <div class="form-row">
+              <div class="col">
+                <input type="text" class="form-control text-center" placeholder="Enter a destination or property">
+              </div>
+              <div class="col calenders">
+                <div class="row">
+                    <div class="col-12 col-md-6 pr-0">
+                        <div class="input-group date" data-provide="datepicker">
+                            <input type="text" class="form-control start" placeholder="15 may 2020">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 pl-0">
+                        
+                        <div class="input-group date" data-provide="datepicker">
+                            <span class="divider">|</span>
+                            <input type="text" class="form-control end"  placeholder="25 may 2020">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col persons">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle form-control person" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span>2 Adults</span>
+                      <span>2 room</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">4 Adults, 4 rooms</a>
+                      <a class="dropdown-item" href="#">1 Adult, 1 room</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <input type="submit" class="form-control btn btn-primary uppercaseText" value="Search">
+              </div>
+            </div>
+        </form>
+    </div>
+    
+</section>
+<section class="filterSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                
+                <div class="slider mr-md-5">
+                    <h5 class="mb-3">Price</h5>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div id="slider-range"></div>
+                      </div>
+                    </div>
+                    <div class="row slider-labels">
+                      <div class="col-6 caption">
+                        INR <span id="slider-range-value1"></span>
+                      </div>
+                      <div class="col-6 text-right caption">
+                        INR <span id="slider-range-value2"></span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <form>
+                          <input type="hidden" name="min-value" value="">
+                          <input type="hidden" name="max-value" value="">
+                        </form>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="slider mr-md-5 mt-3">
+                    <h5 class="mb-3">Guest Rating</h5>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div id="slider-range1"></div>
+                      </div>
+                    </div>
+                    <div class="row slider-labels">
+                      <div class="col-6 caption">
+                         <span id="slider-range-value3"></span>
+                      </div>
+                      <div class="col-6 text-right caption">
+                         <span id="slider-range-value4"></span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <form>
+                          <input type="hidden" name="min-value" value="">
+                          <input type="hidden" name="max-value" value="">
+                        </form>
+                      </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 filterCol">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Popular Filter</h5>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                            <label class="form-check-label" for="defaultCheck3">
+                                Pay @ Hotel Available
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                            <label class="form-check-label" for="defaultCheck4">
+                                Pay @ Hotel Available
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                            <label class="form-check-label" for="defaultCheck5">
+                                Entire Property
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                            <label class="form-check-label" for="defaultCheck6">
+                                Entire Property
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <a href="#"  class="moreLink">Show More</a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-2 col-lg-3 filterCol">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Locality</h5>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                            <label class="form-check-label" for="defaultCheck7">
+                               North Goa
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                            <label class="form-check-label" for="defaultCheck8">
+                                Calangute
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
+                            <label class="form-check-label" for="defaultCheck9">
+                                South Goa
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
+                            <label class="form-check-label" for="defaultCheck10">
+                                Bags
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <a href="#"  class="moreLink">Show More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Star Category</h5>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
+                            <label class="form-check-label" for="defaultCheck11">
+                               Unrated
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck12">
+                            <label class="form-check-label" for="defaultCheck12">
+                                5 Star
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck13">
+                            <label class="form-check-label" for="defaultCheck13">
+                                4 Star
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-12">
+                        <a href="#" class="moreLink">Show More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <a href="">More Filters</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="locationSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8">
+                <a href="#"><img src="img/map.jpg" alt=""/></a>
+            </div>
+            <div class="col-12 col-sm-4 col-md-4 location text-right">
+                <div class="inlineBlockItem text-left">
+                    <h2>Bangalore, India</h2>
+                    <p>2766 properties Available</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8">
+                <select class="btn btn-primary popular">
+                    <option selected>Popular</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                </select>
+                <select class="btn btn-primary budget">
+                    <option selected>Your Budget</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                </select>
+                <select class="btn btn-primary starss">
+                    <option selected>Stars</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                </select>
+                <select class="btn btn-primary locations">
+                    <option selected>Location</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                </select>
+                <select class="btn btn-primary">
+                    <option selected>More</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                    <option >Popular</option>
+                </select>
+              
+            </div>
+            <div class="col-12 col-md-4 col-sm-4">
+                <input type="search" placeholder="Search by hotel name" class="form-control searchField"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mainSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-9">
+                <div class="listings">
+                    <div class="list">
+                        <div class="row">
+                            <div class="col-12 col-md-4 leftColumn pr-md-0">
+                                <div class="image">
+                                    <div class="label">
+                                        <p class="m-0">
+                                            <span><strong>100%</strong></span>
+                                            <small>VERIFIED STAYS</small>
+                                        </p>
+                                    </div>
+                                    <img src="img/property1.jpg" alt=""/>
+                                    <div class="thumbnails">
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-6 pr-md-0 middle-content">
+                                <div class="rightContent">
+                                    <h4>Treehouse Sonnet - A Boutique Hotel</h4>
+                                    <p>Chivar, Anjuna Panchayat Road, Vagator.</p>
+                                    <p class="locationIcon">2.5 km from villages</p>
+                                    <div class="ratingArea row m-0 justify-content-start">
+                                        <ul class="raiting p-0 m-0">
+                                            <li class="fill">1 Star</li>
+                                            <li class="fill">2 Star</li>
+                                            <li class="fill">3 Star</li>
+                                            <li class="fill">4 Star</li>
+                                            <li>5 Star</li>
+                                        </ul>
+                                        <span class="orange">4.9 Review</span>
+                                    </div>
+                                    <div class="badgeArea">
+                                        <span class="badge badge-secondary">Couple Friendly</span>
+                                        <span class="badge badge-secondary">Bar and Club</span>
+                                        <span class="badge badge-secondary">Exceptional location</span>
+                                        <span class="badge badge-secondary">Convenient city access</span>
+                                        <span class="badge badge-secondary">Free cancellation</span>
+                                        <span class="badge badge-secondary">Keyless access</span>
+                                    </div>
+                                    <p class="tag blueBorderBottom">Homes discount Rs. 32</p>
+                                    <div class="services">
+                                        <ul>
+                                            <li>
+                                                <img src="img/car.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/wifi.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/bus.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/water.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/drink.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/bed.png" alt=""/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-2 text-right rightContent lastContent">
+                                <div class="flexM">
+                                    <p class="text-success m-0">INCLUDED IN THIS PRICE</p>
+                                    <p><small>Free Breakfast</small></p>
+                                </div>
+                                <div class="flexM">
+                                    <p><span class="badge badge-danger mt-3">59% OFF TODAY</span></p>
+                                    <p><span class="badge badge-danger light-badge uppercaseText">Long Stay Promo</span></p>
+                                    <p class="price m-0">INR1,500</p>
+                                    <p class="m-0"><small class="strike">INR1.800</small></p>
+                                    <p class="m-0"><small>Per Night</small></p>
+                                </div>
+                                <div class="flexM">
+                                    <a href="#" class="btn btn-outline-success mt-3">Book Now</a>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="row borderInside pt-3 pb-0">
+                            <div class="col-12 col-md-8 flexItem">
+                                <div class="offer">
+                                    <p><span class="badge badge-danger">59% OFF TODAY</span></p>
+                                    <p class="text-success m-0">Special Offer</p>
+                                </div>
+                                <p class="ml-md-4">Unlock Flight+Hotel deals to save more</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-right">
+                                <p class="m-0"><small>Get hotel price at</small></p>
+                                <p class="lessPrice m-0">INR1,500</p>
+                                <a  class="m-0" href="#">View Deals</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list">
+                        <div class="row">
+                            <div class="col-12 col-md-4 leftColumn pr-md-0">
+                                <div class="image">
+                                    <img src="img/property1.jpg" alt=""/>
+                                    <div class="thumbnails">
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                        <img src="img/thumb.jpg" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-6 pr-md-0 middle-content">
+                                <div class="rightContent">
+                                    <h4>Treehouse Sonnet - A Boutique Hotel</h4>
+                                    <p>Chivar, Anjuna Panchayat Road, Vagator.</p>
+                                    <p class="locationIcon">2.5 km from villages</p>
+                                    <div class="ratingArea row m-0 justify-content-start">
+                                        <ul class="raiting p-0 m-0">
+                                            <li class="fill">1 Star</li>
+                                            <li class="fill">2 Star</li>
+                                            <li class="fill">3 Star</li>
+                                            <li class="fill">4 Star</li>
+                                            <li>5 Star</li>
+                                        </ul>
+                                        <span class="orange">4.9 Review</span>
+                                    </div>
+                                    <div class="badgeArea">
+                                        <span class="badge badge-secondary">Couple Friendly</span>
+                                        <span class="badge badge-secondary">Bar and Club</span>
+                                        <span class="badge badge-secondary">Exceptional location</span>
+                                        <span class="badge badge-secondary">Convenient city access</span>
+                                        <span class="badge badge-secondary">Free cancellation</span>
+                                        <span class="badge badge-secondary">Keyless access</span>
+                                    </div>
+                                    <p class="tag blueBorderBottom">Homes discount Rs. 32</p>
+                                    <div class="services">
+                                        <ul>
+                                            <li>
+                                                <img src="img/car.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/wifi.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/bus.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/water.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/drink.png" alt=""/>
+                                            </li>
+                                            <li>
+                                                <img src="img/bed.png" alt=""/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2 text-right rightContent lastContent">
+                                <div class="flexM">
+                                    <p class="text-success m-0">INCLUDED IN THIS PRICE</p>
+                                    <p><small>Free Breakfast</small></p>
+                                </div>
+                                <div class="flexM">
+                                    <p><span class="badge badge-danger mt-3">59% OFF TODAY</span></p>
+                                    <p><span class="badge badge-danger light-badge uppercaseText">Long Stay Promo</span></p>
+                                    <p class="price m-0">INR1,500</p>
+                                    <p class="m-0"><small class="strike">INR1.800</small></p>
+                                    <p class="m-0"><small>Per Night</small></p>
+                                </div>
+                                <div class="flexM">
+                                    <a href="#" class="btn btn-outline-success mt-3">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row borderInside pt-3 pb-0">
+                            <div class="col-12 col-md-8 flexItem">
+                                <div class="offer">
+                                    <p><span class="badge badge-danger">59% OFF TODAY</span></p>
+                                    <p class="text-success m-0">Special Offer</p>
+                                </div>
+                                <p class="ml-md-4">Unlock Flight+Hotel deals to save more</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-right">
+                                <p class="m-0"><small>Get hotel price at</small></p>
+                                <p class="lessPrice m-0">INR1,500</p>
+                                <a  class="m-0" href="#">View Deals</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 sidebar">
+                <div class="fullColumn zero">
+                    <h6>Zero cancellation</h6>
+                    <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor.</p>
+                </div>
+                <div class="fullColumn">
+                    <h6>Wallet Money</h6>
+                    <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor.</p>
+                </div>
+                <div class="fullColumn">
+                    <h6>Delhi Hotel Offer</h6>
+                    <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor.</p>
+                </div>
+                <div class="fullColumn cash">
+                    <h6>25% Cashback Offer</h6>
+                    <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor.</p>
+                </div>
+                <img src="img/mobi.jpg" alt=""/>
+                <img src="img/yatra.jpg" alt=""/>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/slider.js"></script>
+<script>
+   $('.datepicker').datepicker({
+    format: 'mm/dd/yyyy', 
+    startDate: '-3d'
+
+
+});
+
+
+</script>
+</body>
+</html>
